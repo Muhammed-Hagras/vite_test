@@ -1,39 +1,20 @@
-import React, { useReducer } from "react";
+import React, { useContext, useReducer } from "react";
+import CompC from "./components/CompC";
+import CompA from "./components/CompA";
+import CompB from "./components/CompB";
+import { CounterContext } from "./App";
+import reducer, { initialState } from "./reducers/counReducer";
 
 export default function Example() {
-  const initialState = {
-    firstCount: 0,
-    secondCount: 2,
-  };
+  const {countState, countDispatch} = useContext(CounterContext);
+  // const [state, dispatch] = useReducer(reducer, initialState);
 
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case "increment":
-        return {...state, firstCount: state.firstCount + action.value };
-
-      case "decrement":
-        return {...state, firstCount: state.firstCount - action.value };
-
-      case "incrementTwo":
-        return {...state, secondCount: state.secondCount + action.value };
-
-      case "decrementTwo":
-        return {...state, secondCount: state.secondCount - action.value };
-
-      case "reset":
-        return initialState;
-
-      default:
-        state;
-    }
-  };
-
-  const [hamada, dispatch] = useReducer(reducer, initialState);
-console.log(hamada)
   return (
     <div>
-      <p>You clicked {hamada.firstCount} times</p>
-      
+      <p>You clicked on  Example  {countState} times</p>
+      <CompA />
+      <CompB />
+      <CompC />
     </div>
   );
 }

@@ -1,20 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CounterContext } from '../App'
 
 export default function CompC() {
+  const {countState, countDispatch} = useContext(CounterContext)
   return (
     <div>
-      <button onClick={() => dispatch({ type: "increment", value: 1 })}>
+     <p>You clicked on CompC  {countState} times</p>
+      <button onClick={() => countDispatch("increment")}>
         increment
       </button>
-      <button onClick={() => dispatch({ type: "decrement", value: 2 })}>
+      <button onClick={() => countDispatch("decrement")}>
         decrement
       </button>
-      <p>You clicked {hamada.secondCount} times</p>
-      <button onClick={() => dispatch({ type: "incrementTwo", value: 1 })}>
-        increment
-      </button>
-      <button onClick={() => dispatch({ type: "decrementTwo", value: 2 })}>
-        decrement
+      <button onClick={() => countDispatch("reset")}>
+        Reseet
       </button>
     </div>
   )
