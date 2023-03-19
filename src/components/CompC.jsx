@@ -6,13 +6,13 @@ export default function CompC() {
   return (
     <div>
      <p>You clicked on CompC  {countState} times</p>
-      <button onClick={() => countDispatch("increment")}>
-        increment
+     <button onClick={() => countDispatch({type: "increment"})}> 
+        Increment 
       </button>
-      <button onClick={() => countDispatch("decrement")}>
-        decrement
+      <button onClick={() => countDispatch({type: "decrement"})}>
+        Decrement
       </button>
-      <button onClick={() => countDispatch("reset")}>
+      <button onClick={() => countDispatch({type: "reset"})}>
         Reseet
       </button>
     </div>

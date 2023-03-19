@@ -3,16 +3,17 @@ import { CounterContext } from '../App'
 
 export default function compB({state}) {
   const {countState, countDispatch} = useContext(CounterContext)
+  
   return (
     <div>
       <p>You clicked on CompB  {countState} times</p>
-      <button onClick={() => countDispatch("increment")}>
-        increment
+      <button onClick={() => countDispatch({type: "increment"})}> 
+        Increment 
       </button>
-      <button onClick={() => countDispatch("decrement")}>
-        decrement
+      <button onClick={() => countDispatch({type: "decrement"})}>
+        Decrement
       </button>
-      <button onClick={() => countDispatch("reset")}>
+      <button onClick={() => countDispatch({type: "reset"})}>
         Reseet
       </button>
     </div>

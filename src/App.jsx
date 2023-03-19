@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Example from './Example'
 import reducer, { initialState } from './reducers/counReducer'
+import CompD from './components/CompD'
 
 export const CounterContext = createContext();
 
@@ -20,6 +21,7 @@ function App() {
       }}>
       <Example/>
       </CounterContext.Provider>
+      <CompD/>
     </div>
   )
 }
